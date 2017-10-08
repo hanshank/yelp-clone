@@ -3,5 +3,12 @@
     <h1><%= place.name %></h1><br />
     <i><%= place.address %></i><br />
     <p><%= place.description %></p><br />
+
   </div>
 <% end %>
+
+<div class="pagination">
+  <%= paginate @places, default_per_page: 10 %>
+</div>
+
+<br>
