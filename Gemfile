@@ -63,3 +63,5 @@ end
 gem 'will_paginate'
 
 gem 'kaminari'
+
+gem 'simple_form'
