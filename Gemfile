@@ -61,9 +61,7 @@ end
 
 # Adding pagination to our page
 gem 'will_paginate'
-
 gem 'kaminari'
-
 gem 'simple_form'
-
 gem "font-awesome-rails"
+gem 'devise'
