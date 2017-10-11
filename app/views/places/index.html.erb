@@ -4,11 +4,15 @@
     <i><%= place.address %></i><br />
     <p><%= place.description %></p><br />
 
+    <% if place.user.present? %>
+    <small><%= place.user.email %></small>
+    <% end %>
+
   </div>
 <% end %>
 
 <div class="pagination">
-  <%= paginate @places, default_per_page: 1 %>
+  <%= paginate @places, default_per_page: 100 %>
 </div>
 
 <br>
