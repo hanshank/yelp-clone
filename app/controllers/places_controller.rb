@@ -1,6 +1,7 @@
 class PlacesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
+
 def index
   @places = Place.order(:name).page(params[:page])
   Place.page(1).limit_value
@@ -11,8 +12,12 @@ def new
 end
 
 def create
-current_user.places.create(place_params)
-redirect_to root_path
+  @place = current_user.places.create(place_params)
+  if @place.valid?
+    redirect_to root_path
+  else
+    render :new, status: :unprocessable_entity
+  end
 end
 
 def show
@@ -39,7 +44,7 @@ def destroy
 @place = Place.find(params[:id])
 if @place.user != current_user
   return render text: 'Not Allowed, status: :forbidden'
-end
+  end
 @place.destroy
 redirect_to root_path
 end
@@ -48,5 +53,7 @@ private
 
 def place_params
   params.require(:place).permit(:name, :description, :address)
+  end
 end
+
 end
