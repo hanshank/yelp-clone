@@ -46,7 +46,6 @@
 
 <div class="clear"></div>
 <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
-<%= simple_form_for @comment, url: '#' do |f| %>
   <%= f.input :message %>
   <%= f.input :rating, as: :select, collection: Comment::RATINGS %>
 
@@ -55,7 +54,6 @@
 
 <div class="clear"></div>
 <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
-<%= simple_form_for @photo, url: '#' do |f| %>
   <%= f.input :photo %>
 
   <%= f.submit "Add a photo", class: 'btn-primary' %>
@@ -110,8 +108,3 @@
     </div>
   <% end %>
 </div>
-
-
-<% end %>
-
-<% end %>

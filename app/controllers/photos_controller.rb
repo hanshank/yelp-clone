@@ -5,12 +5,9 @@ class Photos_controller < ApplicationRecord
   end
 
   def create
-    @photo = current_user.photos.create(place_params)
-    if @photo.valid?
-      redirect_to root_path
-    else
-      render :new, status: :unprocessable_entity
-    end
+    @place = Place.find(params[:place_id])
+    @place.photos.create(photo_params.merge(user: current_user))
+    redirect_to place_path(@place)
   end
 
 end
