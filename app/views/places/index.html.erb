@@ -28,3 +28,10 @@
 </div>
 
 <br>
+
+<% @place.photos.each do |photo| %>
+  <div class="booyah-box col-10 offset-1">
+    <%= image_tag photo.picture %>
+    <%= photo.caption %>
+  </div>
+<% end %>

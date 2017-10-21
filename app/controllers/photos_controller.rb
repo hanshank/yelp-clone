@@ -1,4 +1,4 @@
-class Photos_controller < ApplicationRecord
+class PhotosController < ApplicationController
 
   def new
     @photo = Photo.new
@@ -6,12 +6,12 @@ class Photos_controller < ApplicationRecord
 
   def create
     @place = Place.find(params[:place_id])
-    @place.photos.create(photo_params.merge(user: current_user))
+    @place.photos.create(photo_params)
     redirect_to place_path(@place)
   end
 
   def photo_params
-    params.require(:photo).permit(:photo)
-    end
+    params.require(:photo).permit(:picture, :caption)
+  end
 
 end
