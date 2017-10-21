@@ -119,20 +119,19 @@
   </div>
 </div>
 
+<div class="clear"></div>
+
 <div class="col-10 offset-1">
   <h1 class="float-left">Photos</h1>
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myPhotoModal">
     Add a photo
   </button>
-  <% @place.photos.each do |photo| %>
-    <%= image_tag photo.picture.to_s %>
-  <% end %>
 </div>
 
   <% @place.photos.each do |photo| %>
-  <p>
-    <%= image_tag photo.picture %>
+  <div class="booyah-box col-10 offset-1">
+    <%= image_tag photo.picture, class: "place-photo" %>
     <%= photo.caption %>
-  </p>
-  <% end %>
+  </div>
+<% end %>
