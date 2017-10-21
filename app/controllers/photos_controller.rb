@@ -10,4 +10,8 @@ class Photos_controller < ApplicationRecord
     redirect_to place_path(@place)
   end
 
+  def photo_params
+    params.require(:photo).permit(:photo)
+    end
+
 end
